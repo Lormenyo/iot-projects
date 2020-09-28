@@ -44,7 +44,7 @@
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
                         <a class="logo" href="index.html">
-                            <img src="images/icon/logo.png" alt="CoolAdmin" />
+                            <img src="images/icon/sp.png" alt="CoolAdmin" style="height: 70px; width:100px" />
                         </a>
                         <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
@@ -58,8 +58,12 @@
                 <div class="container-fluid">
                     <ul class="navbar-mobile__list list-unstyled">
                         <li class="has-sub">
-                            <a class="js-arrow" href="#">
+                            <a class="js-arrow" href="index.php">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="listings.php?listing=1">
+                                <i class="far fa-check-square"></i>Listings</a>
                         </li>
                     </ul>
                 </div>
@@ -71,15 +75,19 @@
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
                 <a href="#">
-                    <img src="images/icon/logo.png" alt="Cool Admin" />
+                    <img src="images/icon/sp.png" alt="Cool Admin" style="height: 100px" />
                 </a>
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li class="active has-sub">
-                            <a class="js-arrow" href="index.html">
+                            <a class="js-arrow" href="index.php">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="listings.php?listing=1">
+                                <i class="far fa-check-square"></i>Listings</a>
                         </li>
                     </ul>
                 </nav>
@@ -87,10 +95,10 @@
         </aside>
         <!-- END MENU SIDEBAR-->
 
-        <!-- Modal for Adding new data -->
 
 
-        <!-- Modal -->
+
+        <!-- Modal for ADDING DATA-->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -103,6 +111,7 @@
                     </div>
                     <div class="modal-body">
                         <form action="insert.php">
+                            <input type="text" class="form-control" style="display: none;" value="1" name="insert">
                             <div class="form-group">
                                 <label for="name"> Sensor Name</label>
                                 <input type="text" class="form-control" id="name" placeholder="eg DHT22, LDR3, etc "
@@ -120,7 +129,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="reading">Sensor reading</label>
-                                <input type="number" class="form-control" id="reading" name="CurrentReading"
+                                <input type="number" step=any class="form-control" id="reading" name="CurrentReading"
                                     placeholder="eg 23.7">
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
@@ -149,7 +158,7 @@
                     </div>
                     <div class="modal-body">
                         <form action="delete.php">
-
+                            <input type="text" class="form-control" style="display: none;" value="1" name="delete">
                             <div class="form-group">
                                 <label for="DataID">Data ID</label>
                                 <input type="number" class="form-control" id="DataID" name="DataID" placeholder="ID">
@@ -165,7 +174,7 @@
             </div>
         </div>
 
-        <!-- Modal  for UPDATE-->
+        <!-- Modal  for UPDATE -->
         <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -177,7 +186,12 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form action="insert.php">
+                        <form action="update.php">
+                            <input type="text" class="form-control" style="display: none;" value="1" name="update">
+                            <div class="form-group">
+                                <label for="DataID">Data ID</label>
+                                <input type="number" class="form-control" id="DataID" name="DataID" placeholder="ID">
+                            </div>
                             <div class="form-group">
                                 <label for="name"> Sensor Name</label>
                                 <input type="text" class="form-control" id="name" placeholder="eg DHT22, LDR3, etc "
@@ -195,7 +209,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="reading">Sensor reading</label>
-                                <input type="number" class="form-control" id="reading" name="CurrentReading"
+                                <input type="number" step=any class="form-control" id="reading" name="CurrentReading"
                                     placeholder="eg 23.7">
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
@@ -220,7 +234,7 @@
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="image">
-                                            <img src="images/icon/avatar-01.jpg" alt="John Doe" />
+                                            <img src="images/icon/avat.png" alt="John Doe" />
                                         </div>
                                         <div class="content">
                                             <a class="js-acc-btn" href="#">Hannah Lormenyo</a>
@@ -229,7 +243,7 @@
                                             <div class="info clearfix">
                                                 <div class="image">
                                                     <a href="#">
-                                                        <img src="images/icon/avatar-01.jpg" alt="John Doe" />
+                                                        <img src="images/icon/avat.png" alt="John Doe" />
                                                     </a>
                                                 </div>
                                                 <div class="content">
@@ -271,238 +285,167 @@
                             </div>
                         </div>
                         <div class="row m-t-25">
-                            <div class="col-sm-6 col-lg-3">
-                                <div class="overview-item overview-item--c1">
-                                    <div class="overview__inner">
-                                        <div class="overview-box clearfix">
-                                            <div class="icon">
-                                                <i class="zmdi zmdi-remote-control-alt"></i>
-                                            </div>
-                                            <div class="text">
-                                                <h2>Temperature</h2>
-                                                <span>Sensor Name</span>
+
+                                            <?php
+include "config.php";
+
+// Run the query
+$q = mysqli_query($con, "select * from `simple_data`
+ORDER BY  DataID DESC 
+LIMIT  1");
+$row = mysqli_fetch_assoc($q);
+                                            echo "
+                                            <div class='col-sm-6 col-lg-3'>
+                                            <div class='overview-item overview-item--c1'>
+                                                <div class='overview__inner'>
+                                                    <div class='overview-box clearfix'>
+                                                        <div class='icon mb-2' style='display:block';>
+                                                            <i class='zmdi zmdi-remote-control-alt'></i>
+                                                        </div>
+                                                        <div class='text'>
+                                                <h2>{$row['SensorName']}</h2>
+                                                <span>{$row['SensorType']}</span>
+                                               
                                             </div>
                                         </div>
 
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-lg-3">
-                                <div class="overview-item overview-item--c2">
-                                    <div class="overview__inner">
-                                        <div class="overview-box clearfix">
-                                            <div class="icon">
-                                                <i class="zmdi zmdi-info"></i>
+                            <div class='col-sm-6 col-lg-3'>
+                                <div class='overview-item overview-item--c2'>
+                                    <div class='overview__inner'>
+                                        <div class='overview-box clearfix'>
+                                            <div class='icon mb-2'  style='display:block';>
+                                                <i class='zmdi zmdi-info'></i>
                                             </div>
-                                            <div class="text">
-                                                <h2>10 F</h2>
+                                            <div class='text'>
+                                                <h2>{$row['CurrentReading']}</h2>
                                                 <span>Current Reading</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-lg-3">
-                                <div class="overview-item overview-item--c3">
-                                    <div class="overview__inner">
-                                        <div class="overview-box clearfix">
-                                            <div class="icon">
-                                                <i class="zmdi zmdi-pin"></i>
+                            <div class='col-sm-6 col-lg-3'>
+                                <div class='overview-item overview-item--c3'>
+                                    <div class='overview__inner'>
+                                        <div class='overview-box clearfix'>
+                                            <div class='icon mb-2'  style='display:block';>
+                                                <i class='zmdi zmdi-pin'></i>
                                             </div>
-                                            <div class="text">
-                                                <h2>Afienya</h2>
+                                            <div class='text'>
+                                                <h2>{$row['SensorLocation']}</h2>
                                                 <span>Sensor Location</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-lg-3">
-                                <div class="overview-item overview-item--c4">
-                                    <div class="overview__inner">
-                                        <div class="overview-box clearfix">
-                                            <div class="icon">
-                                                <i class="zmdi zmdi-calendar-note"></i>
+                            <div class='col-sm-6 col-lg-3'>
+                                <div class='overview-item overview-item--c4'>
+                                    <div class='overview__inner'>
+                                        <div class='overview-box clearfix'>
+                                        <div class='icon mb-2'  style='display:block';>
+                                                <i class='zmdi zmdi-calendar-note'></i>
                                             </div>
-                                            <div class="text">
-                                                <h2>15th July 2020</h2>
+                                            <div class='text'>
+                                                <h2>{$row['DateRead']}</h2>
                                                 <span>Date </span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>";
+?>
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <h2 class="title-1 m-b-25">Sensor Readings</h2>
+                                                    <div class="table-responsive table--no-card m-b-40">
+                                                        <table
+                                                            class="table table-borderless table-striped table-earning">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Date</th>
+                                                                    <th>Data ID</th>
+                                                                    <th>Sensor Name</th>
+                                                                    <th>Sensor Type</th>
+                                                                    <th class="text-right">Reading</th>
+                                                                    <th class="text-right">Sensor Location</th>
 
-                        <div class="row">
-                            <div class="col-lg-9">
-                                <h2 class="title-1 m-b-25">Sensor Readings</h2>
-                                <div class="table-responsive table--no-card m-b-40">
-                                    <table class="table table-borderless table-striped table-earning">
-                                        <thead>
-                                            <tr>
-                                                <th>Date</th>
-                                                <th>Sensor Name</th>
-                                                <th>Sensor Type</th>
-                                                <th class="text-right">Sensor Location</th>
-                                                <th class="text-right">Reading</th>
-                                                <th class="text-right">total</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>2018-09-29 05:57</td>
-                                                <td>100398</td>
-                                                <td>iPhone X 64Gb Grey</td>
-                                                <td class="text-right">$999.00</td>
-                                                <td class="text-right">1</td>
-                                                <td class="text-right">$999.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2018-09-28 01:22</td>
-                                                <td>100397</td>
-                                                <td>Samsung S8 Black</td>
-                                                <td class="text-right">$756.00</td>
-                                                <td class="text-right">1</td>
-                                                <td class="text-right">$756.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2018-09-27 02:12</td>
-                                                <td>100396</td>
-                                                <td>Game Console Controller</td>
-                                                <td class="text-right">$22.00</td>
-                                                <td class="text-right">2</td>
-                                                <td class="text-right">$44.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2018-09-26 23:06</td>
-                                                <td>100395</td>
-                                                <td>iPhone X 256Gb Black</td>
-                                                <td class="text-right">$1199.00</td>
-                                                <td class="text-right">1</td>
-                                                <td class="text-right">$1199.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2018-09-25 19:03</td>
-                                                <td>100393</td>
-                                                <td>USB 3.0 Cable</td>
-                                                <td class="text-right">$10.00</td>
-                                                <td class="text-right">3</td>
-                                                <td class="text-right">$30.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2018-09-29 05:57</td>
-                                                <td>100392</td>
-                                                <td>Smartwatch 4.0 LTE Wifi</td>
-                                                <td class="text-right">$199.00</td>
-                                                <td class="text-right">6</td>
-                                                <td class="text-right">$1494.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2018-09-24 19:10</td>
-                                                <td>100391</td>
-                                                <td>Camera C430W 4k</td>
-                                                <td class="text-right">$699.00</td>
-                                                <td class="text-right">1</td>
-                                                <td class="text-right">$699.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2018-09-22 00:43</td>
-                                                <td>100393</td>
-                                                <td>USB 3.0 Cable</td>
-                                                <td class="text-right">$10.00</td>
-                                                <td class="text-right">3</td>
-                                                <td class="text-right">$30.00</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <h2 class="title-1 m-b-25">Top countries</h2>
-                                <div class="au-card au-card--bg-blue au-card-top-countries m-b-40">
-                                    <div class="au-card-inner">
-                                        <div class="table-responsive">
-                                            <table class="table table-top-countries">
-                                                <tbody>
-                                                    <tr>
-                                                        <td>United States</td>
-                                                        <td class="text-right">$119,366.96</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Australia</td>
-                                                        <td class="text-right">$70,261.65</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>United Kingdom</td>
-                                                        <td class="text-right">$46,399.22</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Turkey</td>
-                                                        <td class="text-right">$35,364.90</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Germany</td>
-                                                        <td class="text-right">$20,366.96</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>France</td>
-                                                        <td class="text-right">$10,366.96</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Australia</td>
-                                                        <td class="text-right">$5,366.96</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Italy</td>
-                                                        <td class="text-right">$1639.32</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <?php
+
+                                            include "config.php";
+
+                                            // Run the query
+                                            $q = mysqli_query($con, "select * from `simple_data`");
+
+                                            //All echos display html elements
+
+                                            // Fill the table body with the values
+                                            while ($row = mysqli_fetch_assoc($q)) {
+                                                echo "<tr>
+        <td>{$row["DateRead"]}</td>
+        <td>{$row["DataID"]}</td>
+        <td>{$row["SensorName"]}</td>
+        <td> {$row["SensorType"]}</td>
+        <td> {$row["CurrentReading"]}</td>
+        <td> {$row["SensorLocation"]}</td>
+      
+    </tr>";
+                                            }
+
+                                            ?>
+
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="copyright">
+                                                        <p>Copyright © 2020 Simple Data.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                                <!-- END MAIN CONTENT-->
+                                <!-- END PAGE CONTAINER-->
                             </div>
+
                         </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="copyright">
-                                    <p>Copyright © 2020 Simple Data.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- END MAIN CONTENT-->
-            <!-- END PAGE CONTAINER-->
-        </div>
 
-    </div>
+                        <!-- Jquery JS-->
+                        <script src="vendor/jquery-3.2.1.min.js"></script>
+                        <!-- Bootstrap JS-->
+                        <script src="vendor/bootstrap-4.1/popper.min.js"></script>
+                        <script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
+                        <!-- Vendor JS       -->
+                        <script src="vendor/slick/slick.min.js">
+                        </script>
+                        <script src="vendor/wow/wow.min.js"></script>
+                        <script src="vendor/animsition/animsition.min.js"></script>
+                        <script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+                        </script>
+                        <script src="vendor/counter-up/jquery.waypoints.min.js"></script>
+                        <script src="vendor/counter-up/jquery.counterup.min.js">
+                        </script>
+                        <script src="vendor/circle-progress/circle-progress.min.js"></script>
+                        <script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+                        <script src="vendor/chartjs/Chart.bundle.min.js"></script>
+                        <script src="vendor/select2/select2.min.js">
+                        </script>
 
-    <!-- Jquery JS-->
-    <script src="vendor/jquery-3.2.1.min.js"></script>
-    <!-- Bootstrap JS-->
-    <script src="vendor/bootstrap-4.1/popper.min.js"></script>
-    <script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
-    <!-- Vendor JS       -->
-    <script src="vendor/slick/slick.min.js">
-    </script>
-    <script src="vendor/wow/wow.min.js"></script>
-    <script src="vendor/animsition/animsition.min.js"></script>
-    <script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
-    </script>
-    <script src="vendor/counter-up/jquery.waypoints.min.js"></script>
-    <script src="vendor/counter-up/jquery.counterup.min.js">
-    </script>
-    <script src="vendor/circle-progress/circle-progress.min.js"></script>
-    <script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
-    <script src="vendor/chartjs/Chart.bundle.min.js"></script>
-    <script src="vendor/select2/select2.min.js">
-    </script>
-
-    <!-- Main JS-->
-    <script src="js/main.js"></script>
+                        <!-- Main JS-->
+                        <script src="js/main.js"></script>
 
 </body>
 
