@@ -2,6 +2,7 @@
 import paho.mqtt.client as mqtt
 import time
 from connect_db import *
+import traceback
 
 
 MQTT_SERVER = "localhost"
@@ -27,64 +28,39 @@ def on_connect(client, userdata, flags, rc):
 # Callback when message received
 def on_message(client, userdata, msg):
     global num_of_failed_inserts
-    print("new message")
+    print("========= new message ============")
     print(msg.topic+" "+str(msg.payload))
     reading = msg.payload.decode('utf-8')
     # print(reading)
     print ("This listens to IoTClass/devices")
+
+    if reading == "ON":
+        reading = 1
+    if reading == "OFF":
+        reading = 0
     try:
-        insert_topic_data(msg.topic, reading)
-    except:
+        if msg.topic == MQTT_PATH1:
+            insert_into_db("temp1", 'Temperature Sensor', float(reading))
+        elif msg.topic == MQTT_PATH2:
+            insert_into_db("temp2", 'Temperature Sensor', float(reading))
+        elif msg.topic == MQTT_PATH3:
+            insert_into_db("ldr", 'Light Intensity Sensor', float(reading))
+        elif msg.topic == MQTT_PATH4:
+            insert_into_db("heater", 'Heater Actuator', float(reading))
+        elif msg.topic == MQTT_PATH5:
+            insert_into_db("humidity1", 'Humidity Sensor', float(reading))
+        elif msg.topic == MQTT_PATH6:
+            insert_into_db("humidity2", 'Humidity Sensor', float(reading))
+        else:
+            insert_into_db("pump", 'Pump Actuator', float(reading))
+
+    except Exception as e:
         num_of_failed_inserts += 1
         print(f"insert failed {num_of_failed_inserts}")
+        print(e)
+        print(traceback.format_exc())
 
 
-
-def insert_temp(name, reading):
-    insert_into_db(name, 'Temperature', float(reading))
-    return
-
-
-def insert_humidity(name, reading):
-    insert_into_db(name, 'Humidity',  float(reading))
-    return
-
-
-def insert_ldr(reading):
-    insert_into_db("ldr", 'Light Intensity',  float(reading))
-    return
-
-def insert_heater(reading):
-    if reading == "OFF":
-        reading = 0.0
-    else:
-        reading = 1.0
-    insert_into_db("heater", 'Heater Actuator', reading)
-    return
-
-def insert_pump(reading):
-    if reading == "OFF":
-        reading = 0.0
-    else:
-        reading = 1.0
-    insert_into_db("pump", 'Pump Actuator', reading)
-    return
-
-def insert_topic_data(argument, reading):
-    switcher = {
-        MQTT_PATH1: insert_temp("temp1", reading),
-        MQTT_PATH2: insert_temp("temp2", reading),
-        MQTT_PATH3: insert_ldr(reading),
-        MQTT_PATH4: insert_heater(reading),
-        MQTT_PATH5: insert_humidity("humidity1", reading),
-        MQTT_PATH6: insert_humidity("humidity2", reading),
-        MQTT_PATH7: insert_pump(reading),
-    }
-    print(f"Argument - {argument}")
-    # Get the function from switcher dictionary
-    func = switcher.get(argument, lambda: "Invalid path")
-    # if func:
-    #     func()
 
     
 client = mqtt.Client()

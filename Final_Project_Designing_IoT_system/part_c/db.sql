@@ -1,3 +1,4 @@
+drop database final;
 create database final;
 use final;
 

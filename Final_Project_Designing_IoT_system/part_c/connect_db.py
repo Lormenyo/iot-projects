@@ -9,10 +9,11 @@ cursor = db.cursor()
 
 def insert_into_db(DeviceName, DeviceType, CurrentReading):
     db.ping()
+    print(f"DB reading {CurrentReading} dtype {type(CurrentReading)}")
     # Prepare SQL query to INSERT a record into the database.
     sql = "INSERT INTO subscriber(DeviceName , DeviceType, CurrentReading)\
     VALUES ('%s', '%s', '%f')" % \
-    (DeviceName, DeviceType, CurrentReading)
+    (DeviceName, DeviceType, float(CurrentReading))
     
     try:
         
