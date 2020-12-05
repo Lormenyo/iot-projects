@@ -60,7 +60,7 @@
     <script src="{{ url_for('static', filename='js/vendor/modernizr-2.8.3.min.js') }}"></script>
 </head>
 
-<body>
+<body style="background-color: #ECF7F1;">
     <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -95,7 +95,7 @@
                                                 </div>
                                                 <div class="hd-mg-ctn">
                                                     <h3>Follow me on GitHub</h3> 
-                                                    <p><a href="https://github.com/Lormenyo">Lormenyo</a></p>
+                                                    <p><a href="https://github.com/Lormenyo" style="font-size: 14px;">Lormenyo</a></p>
                                                 </div>
                                             </div>
                                         </a>
@@ -142,7 +142,7 @@
 							</div>
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-3">
 								<div class="breadcomb-report">
-									<button data-toggle="tooltip" data-placement="left" title="Download Report" class="btn"><i class="notika-icon notika-sent"></i></button>
+									<button data-toggle="tooltip" data-placement="left" title="Cool Right!" class="btn"><i class="notika-icon notika-sent"></i></button>
 								</div>
 							</div>
 						</div>
@@ -151,7 +151,52 @@
 			</div>
 		</div>
 	</div>
-	<!-- Breadcomb area End-->
+    <!-- Breadcomb area End-->
+    
+    <!-- Start Status area -->
+    <div class="notika-status-area" style="padding-bottom: 15px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
+                        <div class="website-traffic-ctn">
+                            <h2><span class="counter">{{ data[-1]["temperature"] }}</span></h2>
+                            <p>Temperature</p>
+                        </div>
+                        <div class="sparkline-bar-stats1">9,4,8,6,5,6,4,8,3,5,9,5</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
+                        <div class="website-traffic-ctn">
+                            <h2><span class="counter">{{ data[-1]["humidity"] }}</span></h2>
+                            <p>Humidity</p>
+                        </div>
+                        <div class="sparkline-bar-stats2">1,4,8,3,5,6,4,8,3,3,9,5</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
+                        <div class="website-traffic-ctn">
+                            <h2><span class="counter">{{ data[-1]["ldr"] }}</span></h2>
+                            <p>Light Intensity</p>
+                        </div>
+                        <div class="sparkline-bar-stats3">4,2,8,2,5,6,3,8,3,5,9,5</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
+                        <div class="website-traffic-ctn">
+                            <h2><span style="font-size: 11px;">{{ data[-1]["led1"] }}-{{ data[-1]["led2"] }}-{{ data[-1]["servo"] }}</span></h2>
+                            <p>LED1-LED2-Servo</p>
+                        </div>
+                        <div class="sparkline-bar-stats4">2,4,8,4,5,7,4,7,3,5,7,5</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Data Table area Start-->
     <div class="data-table-area">
         <div class="container">
