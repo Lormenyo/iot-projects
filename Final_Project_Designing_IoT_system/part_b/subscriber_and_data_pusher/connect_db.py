@@ -7,13 +7,13 @@ db = pymysql.connect("localhost","root","","final" )
 cursor = db.cursor()
 
 
-def insert_into_db(temp1, temp2, ldr, heater, humidity1, humidity2, pump):
+def insert_into_db(led1, led2, servo, temp, humidity, ldr):
     db.ping()
     # print(f"led1 {CurrentReading} dtype {type(CurrentReading)}")
     # Prepare SQL query to INSERT a record into the database.
     sql = "INSERT INTO mysensors(Led1 , Led2, ServoMotor, temperature, humidity, ldr)\
-    VALUES ('%f', '%f', '%f', '%s', '%f', '%f', '%s')" % \
-    (temp1, temp2, ldr, heater, humidity1, humidity2, pump)
+    VALUES ('%s', '%s', '%s', '%f', '%f', '%f')" % \
+    (led1, led2, servo, temp, humidity, ldr)
     
     try:
         

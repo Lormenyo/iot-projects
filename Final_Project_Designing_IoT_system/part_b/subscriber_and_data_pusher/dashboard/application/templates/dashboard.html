@@ -1,0 +1,289 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>My Sensors</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- favicon
+		============================================ -->
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+    <!-- Google Fonts
+		============================================ -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
+    <!-- Bootstrap CSS
+		============================================ -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <!-- font awesome CSS
+		============================================ -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
+    <!-- owl.carousel CSS
+		============================================ -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.theme.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.transitions.css') }}">
+    <!-- meanmenu CSS
+		============================================ -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/meanmenu/meanmenu.min.css') }}">
+    <!-- animate CSS
+		============================================ -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.css') }}">
+    <!-- normalize CSS
+		============================================ -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
+	<!-- wave CSS
+		============================================ -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/wave/waves.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/wave/button.css') }}">
+    <!-- mCustomScrollbar CSS
+		============================================ -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/scrollbar/jquery.mCustomScrollbar.min.css') }}">
+    <!-- Notika icon CSS
+		============================================ -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/notika-custom-icon.css') }}">
+    <!-- Data Table JS
+		============================================ -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/jquery.dataTables.min.css') }}">
+    <!-- main CSS
+		============================================ -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <!-- style CSS
+		============================================ -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- responsive CSS
+		============================================ -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+    <!-- modernizr JS
+		============================================ -->
+    <script src="{{ url_for('static', filename='js/vendor/modernizr-2.8.3.min.js') }}"></script>
+</head>
+
+<body>
+    <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <!-- Start Header Top Area -->
+    <div class="header-top-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <div class="logo-area">
+                        <!-- <a href="#"><img src="img/logo/logo.png" alt="" /></a> -->
+                        <h3 style="color:white">SensorHub</h3>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                    <div class="header-top-menu">
+                        <ul class="nav navbar-nav notika-top-nav">
+                            <li class="nav-item nc-al">
+                                <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
+                                <span><i class="notika-icon notika-alarm"></i></span>
+                                <!-- <div class="spinner4 spinner-4"></div>
+                                <div class="ntd-ctn"><span>1</span></div> -->
+                            </a>
+                                <div role="menu" class="dropdown-menu message-dd notification-dd animated zoomIn" style="width: 250px;">
+                                    <div class="hd-mg-tt">
+                                        <h2>Notification</h2>
+                                    </div>
+                                    <div class="hd-message-info">
+                                        <a href="#">
+                                            <div class="hd-message-sn">
+                                                <div class="hd-message-img">
+                                                    <img src="{{ url_for('static', filename='img/post/git.png') }}" alt="" />
+                                                </div>
+                                                <div class="hd-mg-ctn">
+                                                    <h3>Follow me on GitHub</h3> 
+                                                    <p><a href="https://github.com/Lormenyo">Lormenyo</a></p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        
+
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Header Top Area -->
+ 
+    <!-- Main Menu area start-->
+    <div class="main-menu-area mg-tb-40">
+        <div class="container">
+            <div class="row">
+
+            </div>
+        </div>
+    </div>
+    <!-- Main Menu area End-->
+
+	<!-- Breadcomb area Start-->
+	<div class="breadcomb-area">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<div class="breadcomb-list">
+						<div class="row">
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								<div class="breadcomb-wp">
+									<div class="breadcomb-icon">
+										<i class="notika-icon notika-windows"></i>
+									</div>
+									<div class="breadcomb-ctn">
+										<h2>Sensor Values</h2>
+										<p>Welcome to Hannah's <span class="bread-ntd">Dashboard</span></p>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-3">
+								<div class="breadcomb-report">
+									<button data-toggle="tooltip" data-placement="left" title="Download Report" class="btn"><i class="notika-icon notika-sent"></i></button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Breadcomb area End-->
+    <!-- Data Table area Start-->
+    <div class="data-table-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="data-table-list">
+                        <div class="basic-tb-hd">
+                            <h2>Summary</h2>
+                            <p>This dashboard shows sensor values obtained from DHT21, two LEDs, one servo motor and one LDR</p>
+                        </div>
+                        <div class="table-responsive">
+                            <table id="data-table-basic" class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>LED1</th>
+                                        <th>LED2</th>
+                                        <th>Servo Motor</th>
+                                        <th>Temperature</th>
+                                        <th>Humidity</th>
+                                        <th>Light Intensity</th>
+                                        <th>Timestamp</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                            {% for element in data %} 
+                                    <tr>
+                                        <td>{{element["led1"]}}</td>
+                                        <td>{{element["led2"]}}</td>
+                                        <td>{{element["servo"]}}</td>
+                                        <td>{{element["temperature"]}}</td>
+                                        <td>{{element["humidity"]}}</td>
+                                        <td>{{element["ldr"]}}</td>
+                                        <td>{{element["time"]}}</td>
+                                    </tr>
+                            {% endfor %}
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>LED1</th>
+                                        <th>LED2</th>
+                                        <th>Servo Motor</th>
+                                        <th>Temperature</th>
+                                        <th>Humidity</th>
+                                        <th>Light Intensity</th>
+                                        <th>Timestamp</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Data Table area End-->
+    <!-- Start Footer area-->
+    <div class="footer-copyright-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="footer-copy-right">
+                        <p>Copyright © 2020 All rights reserved</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Footer area-->
+    <!-- jquery
+		============================================ -->
+    <script src="{{ url_for('static', filename='js/vendor/jquery-1.12.4.min.js') }}"></script>
+    <!-- bootstrap JS
+		============================================ -->
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <!-- wow JS
+		============================================ -->
+    <script src="{{ url_for('static', filename='js/wow.min.js') }}"></script>
+    <!-- price-slider JS
+		============================================ -->
+    <script src="{{ url_for('static', filename='js/jquery-price-slider.js') }}"></script>
+    <!-- owl.carousel JS
+		============================================ -->
+    <script src="{{ url_for('static', filename='js/owl.carousel.min.js') }}"></script>
+    <!-- scrollUp JS
+		============================================ -->
+    <script src="{{ url_for('static', filename='js/jquery.scrollUp.min.js') }}"></script>
+    <!-- meanmenu JS
+		============================================ -->
+    <script src="{{ url_for('static', filename='js/meanmenu/jquery.meanmenu.js') }}"></script>
+    <!-- counterup JS
+		============================================ -->
+    <script src="{{ url_for('static', filename='js/counterup/jquery.counterup.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/counterup/waypoints.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/counterup/counterup-active.js') }}"></script>
+    <!-- mCustomScrollbar JS
+		============================================ -->
+    <script src="{{ url_for('static', filename='js/scrollbar/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+    <!-- sparkline JS
+		============================================ -->
+    <script src="{{ url_for('static', filename='js/sparkline/jquery.sparkline.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/sparkline/sparkline-active.js') }}"></script>
+    <!-- flot JS
+		============================================ -->
+    <script src="{{ url_for('static', filename='js/flot/jquery.flot.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/flot/jquery.flot.resize.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/flot/flot-active.js') }}"></script>
+    <!-- knob JS
+		============================================ -->
+    <script src="{{ url_for('static', filename='js/knob/jquery.knob.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/knob/jquery.appear.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/knob/knob-active.js') }}"></script>
+    <!--  Chat JS
+		============================================ -->
+    <script src="{{ url_for('static', filename='js/chat/jquery.chat.js') }}"></script>
+    <!--  todo JS
+		============================================ -->
+    <script src="{{ url_for('static', filename='js/todo/jquery.todo.js') }}"></script>
+	<!--  wave JS
+		============================================ -->
+    <script src="{{ url_for('static', filename='js/wave/waves.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/wave/wave-active.js') }}"></script>
+    <!-- plugins JS
+		============================================ -->
+    <script src="{{ url_for('static', filename='js/plugins.js') }}"></script>
+    <!-- Data Table JS
+		============================================ -->
+    <script src="{{ url_for('static', filename='js/data-table/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/data-table/data-table-act.js') }}"></script>
+    <!-- main JS
+		============================================ -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+
+</html>
