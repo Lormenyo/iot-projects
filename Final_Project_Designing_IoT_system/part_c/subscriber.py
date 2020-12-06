@@ -17,7 +17,14 @@ MQTT_PATH7 = "IoTClass/devices/pump"
  
 
 num_of_failed_inserts = 0
-
+num_of_successful_inserts = 0
+temp1 = 0
+temp2 = 0
+ldr = 0
+heater = 0
+humidity1 = 0
+humidity2 = 0
+pump = 0
 
 # The callback when conected.
 def on_connect(client, userdata, flags, rc):
@@ -28,31 +35,48 @@ def on_connect(client, userdata, flags, rc):
 # Callback when message received
 def on_message(client, userdata, msg):
     global num_of_failed_inserts
+    global num_of_successful_inserts
+    global temp1
+    global temp2
+    global ldr
+    global heater
+    global humidity1
+    global humidity2
+    global pump
     print("========= new message ============")
     print(msg.topic+" "+str(msg.payload))
     reading = msg.payload.decode('utf-8')
     # print(reading)
     print ("This listens to IoTClass/devices")
 
-    if reading == "ON":
-        reading = 1
-    if reading == "OFF":
-        reading = 0
     try:
         if msg.topic == MQTT_PATH1:
-            insert_into_db("temp1", 'Temperature Sensor', float(reading))
+            temp1 = float(reading)
         elif msg.topic == MQTT_PATH2:
-            insert_into_db("temp2", 'Temperature Sensor', float(reading))
+            temp2 = float(reading)
         elif msg.topic == MQTT_PATH3:
-            insert_into_db("ldr", 'Light Intensity Sensor', float(reading))
+            ldr = float(reading)
         elif msg.topic == MQTT_PATH4:
-            insert_into_db("heater", 'Heater Actuator', float(reading))
+            heater = reading
         elif msg.topic == MQTT_PATH5:
-            insert_into_db("humidity1", 'Humidity Sensor', float(reading))
+            humidity1 = float(reading)
         elif msg.topic == MQTT_PATH6:
-            insert_into_db("humidity2", 'Humidity Sensor', float(reading))
+            humidity2 = float(reading)
         else:
-            insert_into_db("pump", 'Pump Actuator', float(reading))
+            pump = reading
+
+        
+        
+        insert_into_db(temp1, temp2, ldr, heater, humidity1, humidity2, pump)
+        temp1 = 0
+        temp2 = 0
+        ldr = 0
+        heater = 0
+        humidity1 = 0
+        humidity2 = 0
+        pump = 0
+        num_of_successful_inserts += 1
+        print(f"----Insert #{num_of_successful_inserts} Successful----")
 
     except Exception as e:
         num_of_failed_inserts += 1

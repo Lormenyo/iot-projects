@@ -1,4 +1,3 @@
-
 #include "DHT.h"
 #include <Servo.h>
 #include <ESP8266WiFi.h>

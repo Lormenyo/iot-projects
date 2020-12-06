@@ -11,7 +11,7 @@ def insert_into_db(temp1, temp2, ldr, heater, humidity1, humidity2, pump):
     db.ping()
     # print(f"led1 {CurrentReading} dtype {type(CurrentReading)}")
     # Prepare SQL query to INSERT a record into the database.
-    sql = "INSERT INTO mysensors(Led1 , Led2, ServoMotor, temperature, humidity, ldr)\
+    sql = "INSERT INTO subscriber(temp1 , temp2, ldr, heater, humidity1, humidity2, pump)\
     VALUES ('%f', '%f', '%f', '%s', '%f', '%f', '%s')" % \
     (temp1, temp2, ldr, heater, humidity1, humidity2, pump)
     
