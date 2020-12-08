@@ -98,7 +98,7 @@ void setup_wifi() {
 
 void setup() {
 //  Serial.begin(115200);
-  Serial.begin(57600);              //when you open serial terminal, chnge 9600
+  Serial.begin(57600);              //when you open serial terminal, change 9600
   Serial.println(F("DHTxx test!"));
   pinMode(LED1, OUTPUT); 
   pinMode(LED2, OUTPUT); 
