@@ -1,7 +1,14 @@
 import pymysql
 
 # Open database connection
-db = pymysql.connect("localhost","root","","final" )
+# db = pymysql.connect("localhost","root","","final" )
+
+# Cloud database
+db = pymysql.connect(host='us-cdbr-east-02.cleardb.com',
+                    user='b8370eb7574a56',
+                    password='2af696d9',
+                    db='heroku_c49b5b35ce17b71'
+                    )
 
 # prepare a cursor object using cursor() method
 cursor = db.cursor()

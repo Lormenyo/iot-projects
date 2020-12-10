@@ -29,7 +29,7 @@ while True:
         # read temperature from DHT
         temperature_c = dhtDevice.temperature
         publish.single(MQTT_PATH_TEMP, temperature_c, hostname=MQTT_SERVER)
-        time.sleep(5)
+        time.sleep(1)
     except RuntimeError as error:
         print(error.args[0])
     print(f'Distance: {distance}')
